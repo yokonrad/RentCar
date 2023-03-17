@@ -1,0 +1,48 @@
+﻿@model Core.Entities.Car
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Car - Create</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="input-group">
+                <label asp-for="Name" class="input-group-text">Name</label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+            
+            <div class="input-group">
+                <label asp-for="Description" class="input-group-text">Description</label>
+                <input asp-for="Description" class="form-control" />
+            </div>
+            <span asp-validation-for="Description" class="text-danger"></span>
+            
+            <div class="input-group">
+                <label asp-for="Price" class="input-group-text">Price</label>
+                <input asp-for="Price" class="form-control" />
+            </div>
+            <span asp-validation-for="Price" class="text-danger"></span>
+            
+            <div class="form-group d-grid gap-2 mt-2">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RentCar</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="~/lib/animate.css/animate.min.css" />
+    <link rel="stylesheet" href="~/lib/aos/aos.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="~/lib/boxicons/css/boxicons.min.css" />
+    <link rel="stylesheet" href="~/lib/glightbox/css/glightbox.min.css" />
+    <link rel="stylesheet" href="~/lib/remixicon/remixicon.css" />
+    <link rel="stylesheet" href="~/lib/swiper/swiper-bundle.min.css" />
+
+    <!-- Site CSS Files -->
+    <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
+</head>
+<body>
+
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <div class="logo">
+                <h1><a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RentCar</a></h1>
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a class="dropdown-item text-dark" asp-area="" asp-controller="Car" asp-action="index">Cars</a></li>
+                            <li><a class="dropdown-item text-dark" asp-area="" asp-controller="Location" asp-action="index">Locations</a></li>
+                            <li><a class="dropdown-item text-dark" asp-area="" asp-controller="Reservation" asp-action="index">Reservations</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container pt-2">
+            @RenderBody()
+        </div>
+    </main>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/aos/aos.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/glightbox/js/glightbox.min.js"></script>
+    <script src="~/lib/jquery.isotope/isotope.pkgd.min.js"></script>
+    <script src="~/lib/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Site JS File -->
+    <script src="~/js/theme.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

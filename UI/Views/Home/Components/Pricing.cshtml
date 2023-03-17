@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Core.Entities.Car>
+
+<section id="pricing" class="pricing">
+    <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+            <h2>Pricing</h2>
+            <p>Our Competing Prices</p>
+        </div>
+
+        <div class="row">
+            @foreach (var car in Model)
+            {
+                <div class="col-lg-4 col-md-6 mt-4 mt-md-0 mb-lg-4 mb-md-4">
+                    <div class="box" data-aos="zoom-in">
+                        <form asp-action="MakeReservation">
+                            @Html.HiddenFor(modelItem => car.Id)
+                            <h3>@Html.DisplayFor(modelItem => car.Name)</h3>
+                            <h4><sup>$</sup>@Html.DisplayFor(modelItem => car.Price)<span> / day</span></h4>
+                            <ul>
+                                <li>@Html.DisplayFor(modelItem => car.Description)</li>
+                            </ul>
+                            <div class="btn-wrap">
+                            <input type="submit" value="Make a Reservation" class="btn-buy" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,72 @@
+﻿@model Core.Entities.Reservation
+
+@{
+    ViewData["Title"] = "Make Reservation";
+
+    await Html.RenderPartialAsync("Components/Hero");
+}
+
+<section id="reservation" class="reservation">
+    <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+            <h2>Reservation</h2>
+            <p>Make a reservation</p>
+        </div>
+
+        <div class="row content" data-aos="fade-up">
+            <div class="col-md-4">
+                <form asp-action="MakeReservationConfirm">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="input-group">
+                        <label asp-for="Email" class="input-group-text">Email</label>
+                        <input asp-for="Email" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                    
+                    <div class="input-group">
+                        <label asp-for="CarId" class="input-group-text">Car</label>
+                        <select asp-for="CarId" class="form-control" asp-items="ViewBag.Cars"></select>
+                    </div>
+                    <span asp-validation-for="CarId" class="text-danger"></span>
+                    
+                    <div class="input-group">
+                        <label asp-for="LocationFromId" class="input-group-text">Location From</label>
+                        <select asp-for="LocationFromId" class="form-control" asp-items="ViewBag.LocationsFrom"></select>
+                    </div>
+                    <span asp-validation-for="LocationFromId" class="text-danger"></span>
+                    
+                    <div class="input-group">
+                        <label asp-for="LocationToId" class="input-group-text">Location To</label>
+                        <select asp-for="LocationToId" class="form-control" asp-items="ViewBag.LocationsTo"></select>
+                    </div>
+                    <span asp-validation-for="LocationToId" class="text-danger"></span>
+                    
+                    <div class="input-group">
+                        <label asp-for="DateFrom" class="input-group-text">Date From</label>
+                        <input asp-for="DateFrom" class="form-control" />
+                    </div>
+                    <span asp-validation-for="DateFrom" class="text-danger"></span>
+                    
+                    <div class="input-group">
+                        <label asp-for="DateTo" class="input-group-text">Date To</label>
+                        <input asp-for="DateTo" class="form-control" />
+                    </div>
+                    <span asp-validation-for="DateTo" class="text-danger"></span>
+
+                    <div class="form-group d-grid gap-2 mt-2">
+                        <input type="submit" value="Make a Reservation" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

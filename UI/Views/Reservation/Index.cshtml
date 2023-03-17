@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Core.Entities.Reservation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Reservation - Index</h1>
+<p><a asp-action="Create">Create New</a></p>
+<table class="table table-hover text-center">
+    <thead>
+        <tr>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th class="col-4">
+                @Html.DisplayNameFor(model => model.Car)
+            </th>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.LocationFrom)
+            </th>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.LocationTo)
+            </th>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.DateFrom)
+            </th>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.DateTo)
+            </th>
+            <th class="col-2">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="col-1">
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td class="col-1">
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td class="col-4">
+                    @Html.DisplayFor(modelItem => item.Car.Id),
+                    @Html.DisplayFor(modelItem => item.Car.Name),
+                    @Html.DisplayFor(modelItem => item.Car.Price)
+                </td>
+                <td class="col-1">
+                    @Html.DisplayFor(modelItem => item.LocationFrom.Id),
+                    @Html.DisplayFor(modelItem => item.LocationFrom.Name)
+                </td>
+                <td class="col-1">
+                    @Html.DisplayFor(modelItem => item.LocationTo.Id),
+                    @Html.DisplayFor(modelItem => item.LocationTo.Name)
+                </td>
+                <td class="col-1">
+                    @Html.DisplayFor(modelItem => item.DateFrom)
+                </td>
+                <td class="col-1">
+                    @Html.DisplayFor(modelItem => item.DateTo)
+                </td>
+                <td class="col-2">
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
