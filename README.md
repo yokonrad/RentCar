@@ -6,4 +6,4 @@
 4. Later i've implemented simple UI theme and functionality to make a reservations on home page.<br />
 
 TODO:
-- Next step should me implementing authentitication handlers to hide admin functionality (like crud operations on tables) and rethink about client/server side validations.
+- Next step should be implementing authentitication handlers to hide admin functionality (like crud operations on tables) and rethink about client/server side validations.
